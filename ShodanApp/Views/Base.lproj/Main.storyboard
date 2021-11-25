@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="ShodanApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shodan.io result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaQ-vF-8Hk">
+                                <rect key="frame" x="126" y="54" width="162" height="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter IP for check..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YvV-mp-Xee">
+                                <rect key="frame" x="20" y="98" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="ipTextFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="53U-Vi-byk"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjw-Ce-HuO">
+                                <rect key="frame" x="173.5" y="152" width="67" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Check"/>
+                                <connections>
+                                    <action selector="checkButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iMc-tQ-1x2"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vf4-sH-0QX">
+                                <rect key="frame" x="0.0" y="213" width="414" height="649"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Response data" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QI4-sW-QEv">
+                                        <rect key="frame" x="20" y="20" width="130.5" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="QI4-sW-QEv" secondAttribute="trailing" constant="20" id="2SS-UH-JTF"/>
+                                    <constraint firstItem="QI4-sW-QEv" firstAttribute="top" secondItem="vf4-sH-0QX" secondAttribute="top" constant="20" id="M0u-cH-XUz"/>
+                                    <constraint firstAttribute="bottom" secondItem="QI4-sW-QEv" secondAttribute="bottom" constant="20" id="rd1-GC-kUD"/>
+                                    <constraint firstItem="QI4-sW-QEv" firstAttribute="leading" secondItem="vf4-sH-0QX" secondAttribute="leading" constant="20" id="w8Q-S4-zE3"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="l7k-tS-dMv"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ma0-AU-LWR"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YvV-mp-Xee" secondAttribute="trailing" constant="20" id="2c7-CF-0dk"/>
+                            <constraint firstItem="MaQ-vF-8Hk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7Wt-2Q-jro"/>
+                            <constraint firstItem="Wjw-Ce-HuO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GWl-FR-RHS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vf4-sH-0QX" secondAttribute="trailing" id="HI1-F4-qyo"/>
+                            <constraint firstItem="vf4-sH-0QX" firstAttribute="top" secondItem="Wjw-Ce-HuO" secondAttribute="bottom" constant="20" id="bus-Pb-qus"/>
+                            <constraint firstItem="Wjw-Ce-HuO" firstAttribute="top" secondItem="YvV-mp-Xee" secondAttribute="bottom" constant="20" id="j4A-eN-3Oz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vf4-sH-0QX" secondAttribute="bottom" id="mX4-0h-toA"/>
+                            <constraint firstItem="YvV-mp-Xee" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="rH0-KP-Kep"/>
+                            <constraint firstItem="vf4-sH-0QX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="s6G-zP-Rgc"/>
+                            <constraint firstItem="YvV-mp-Xee" firstAttribute="top" secondItem="MaQ-vF-8Hk" secondAttribute="bottom" constant="17" id="tRU-gj-eiy"/>
+                            <constraint firstItem="MaQ-vF-8Hk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="xaD-sd-Hp0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="responseLabel" destination="QI4-sW-QEv" id="XsW-hh-mKS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="98"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
