@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NetworkManager {
+class NetworkManager {
     
     func fetchHostSummary(for ip: String, completion: @escaping (HostSummaryInfo?) -> Void) {
         
@@ -26,6 +26,7 @@ struct NetworkManager {
             DispatchQueue.main.async {
                 completion(hostSummaryInfo)
             }
+            
         }.resume()
     }
     
