@@ -11,7 +11,7 @@ class NetworkManager {
     
     static func fetchHostSummary(for ip: String, completion: @escaping (HostSummaryInfo?) -> Void) {
         
-        let apiPath = "https://api.shodan.io/shodan/host/" + ip + "?key=7lzfRTlxRZeRAvcAXQA3IpFpCvifhB7D"
+        let apiPath = "https://api.shodan.io/shodan/host/" + ip + "?key=\(apiKey)"
         
         guard let url = URL(string: apiPath) else { return }
         
