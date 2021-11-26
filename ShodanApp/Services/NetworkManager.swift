@@ -9,7 +9,7 @@ import Foundation
 
 class NetworkManager {
     
-    static func fetchHostSummary(for ip: String, completion: @escaping (String) -> Void) {
+    static func fetchHostSummary(for ip: String, completion: @escaping (HostSummaryInfo?) -> Void) {
         
         let apiPath = "https://api.shodan.io/shodan/host/" + ip + "?key=7lzfRTlxRZeRAvcAXQA3IpFpCvifhB7D"
         
@@ -24,11 +24,11 @@ class NetworkManager {
             do {
                 let hostSummaryInfo = try JSONDecoder().decode(HostSummaryInfo.self, from: data)
                 DispatchQueue.main.async {
-                    completion(hostSummaryInfo.description)
+                    completion(hostSummaryInfo)
                 }
             } catch let error {
                 DispatchQueue.main.async {
-                    completion("No information for this input")
+                    completion(nil)
                 }
                 print(error.localizedDescription)
             }

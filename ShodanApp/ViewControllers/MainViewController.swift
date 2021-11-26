@@ -14,8 +14,12 @@ class MainViewController: UIViewController {
     private var ip = ""
     
     @IBAction func checkButtonTap(_ sender: UIButton) {
-        NetworkManager.fetchHostSummary(for: ip) { resultString in
-            self.responseLabel.text = resultString
+        NetworkManager.fetchHostSummary(for: ip) { hostSummaryInfo in
+            if let summaryString = hostSummaryInfo?.description {
+                self.responseLabel.text = summaryString
+            } else {
+                self.responseLabel.text = "No information for your input."
+            }
         }
     }
     
