@@ -23,12 +23,17 @@ class NetworkManager {
             
             do {
                 let hostSummaryInfo = try JSONDecoder().decode(HostSummaryInfo.self, from: data)
-                completion(hostSummaryInfo.description)
-            
+                DispatchQueue.main.async {
+                    completion(hostSummaryInfo.description)
+                }
+                
             } catch let error {
-                completion("No information for this input")
+                DispatchQueue.main.async {
+                    completion("No information for this input")
+                }
                 print(error.localizedDescription)
             }
+            
         }.resume()
     }
 }

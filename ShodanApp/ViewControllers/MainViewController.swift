@@ -8,16 +8,14 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
     @IBOutlet weak var responseLabel: UILabel!
     
     private var ip = ""
-
+    
     @IBAction func checkButtonTap(_ sender: UIButton) {
         NetworkManager.fetchHostSummary(for: ip) { resultString in
-            DispatchQueue.main.async {
-                self.responseLabel.text = resultString
-            }
+            self.responseLabel.text = resultString
         }
     }
     

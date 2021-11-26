@@ -61,10 +61,10 @@
 			isa = PBXGroup;
 			children = (
 				C24493C32750417C00135C50 /* Configs */,
-				C24493C22750417100135C50 /* Views */,
-				C24493C12750416600135C50 /* Services */,
-				C24493C02750415700135C50 /* ViewControllers */,
 				C24493BF2750414B00135C50 /* Models */,
+				C24493C22750417100135C50 /* Views */,
+				C24493C02750415700135C50 /* ViewControllers */,
+				C24493C12750416600135C50 /* Services */,
 				C24493B02750236600135C50 /* Assets.xcassets */,
 				C24493B52750236600135C50 /* Info.plist */,
 			);

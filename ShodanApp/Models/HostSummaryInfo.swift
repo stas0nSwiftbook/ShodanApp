@@ -21,13 +21,15 @@ struct HostSummaryInfo: Decodable {
     
     var description: String {
         """
+        ip: \(ip_str)
+        isp: \(isp)
         city: \(city)
+        country: \(country_name)
         latitude: \(latitude)
         longitude: \(longitude)
-        isp: \(isp)
-        last update: \(last_update)
-        country: \(country_name)
-        ip: \(ip_str)
+        
+        last update:
+        \(last_update)
         
         ports:
         \(ports.map {String($0)}.joined(separator: ", \n"))
