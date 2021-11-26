@@ -32,13 +32,13 @@ struct HostSummaryInfo: Decodable {
         \(last_update)
         
         ports:
-        \(ports.map {String($0)}.joined(separator: ", \n"))
+        \(ports.map {String($0)}.joined(separator: "\n"))
         
         domains:
-        \(domains.map {String($0)}.joined(separator: ", \n"))
+        \(domains.joined(separator: "\n"))
         
         hostnames:
-        \(hostnames.map {String($0)}.joined(separator: ", \n"))
+        \(hostnames.joined(separator: "\n"))
         
         """
     }

@@ -26,7 +26,6 @@ class NetworkManager {
                 DispatchQueue.main.async {
                     completion(hostSummaryInfo.description)
                 }
-                
             } catch let error {
                 DispatchQueue.main.async {
                     completion("No information for this input")
