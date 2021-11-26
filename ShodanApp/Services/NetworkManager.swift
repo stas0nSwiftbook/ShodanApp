@@ -7,11 +7,11 @@
 
 import Foundation
 
-class NetworkManager {
+struct NetworkManager {
     
-    static func fetchHostSummary(for ip: String, completion: @escaping (HostSummaryInfo?) -> Void) {
+    func fetchHostSummary(for ip: String, completion: @escaping (HostSummaryInfo?) -> Void) {
         
-        let apiPath = "https://api.shodan.io/shodan/host/" + ip + "?key=\(apiKey)"
+        let apiPath = "https://api.shodan.io/shodan/host/" + ip + "?key=\(apiKey )"
         
         guard let url = URL(string: apiPath) else { return }
         
@@ -21,18 +21,23 @@ class NetworkManager {
                 return
             }
             
-            do {
-                let hostSummaryInfo = try JSONDecoder().decode(HostSummaryInfo.self, from: data)
-                DispatchQueue.main.async {
-                    completion(hostSummaryInfo)
-                }
-            } catch let error {
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
-                print(error.localizedDescription)
-            }
+            let hostSummaryInfo = self.parseHostSummaryData(withData: data)
             
+            DispatchQueue.main.async {
+                completion(hostSummaryInfo)
+            }
         }.resume()
+    }
+    
+    private func parseHostSummaryData(withData data: Data) -> HostSummaryInfo? {
+        let decoder = JSONDecoder()
+        
+        do {
+            let hostSummaryInfo = try decoder.decode(HostSummaryInfo.self, from: data)
+            return hostSummaryInfo
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        return nil
     }
 }

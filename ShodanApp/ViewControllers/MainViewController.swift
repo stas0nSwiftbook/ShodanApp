@@ -11,10 +11,11 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var responseLabel: UILabel!
     
+    private let networkManager = NetworkManager()
     private var ip = ""
     
     @IBAction func checkButtonTap(_ sender: UIButton) {
-        NetworkManager.fetchHostSummary(for: ip) { hostSummaryInfo in
+        networkManager.fetchHostSummary(for: ip) { hostSummaryInfo in
             if let summaryString = hostSummaryInfo?.description {
                 self.responseLabel.text = summaryString
             } else {
